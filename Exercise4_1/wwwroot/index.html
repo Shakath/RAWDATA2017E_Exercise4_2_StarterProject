@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Ajax</title>
+</head>
+<body>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+			integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+			crossorigin="anonymous"></script>
+	<div id="data"></div>
+	<script>
+		$.ajax({
+			url: "localhost:64166/api/posts",
+			method: "GET",
+			dataType: "json",
+			success: function (data) {
+				console.log(data);
+				$("#data").text(JSON.stringify(data.items));
+				
+			}
+		});
+	</script>
+	<button data-bind="click: changeTitle" style="font-size: 30px;">Tell me a secret!</button>
+	<h1 data-bind="text: title" style="color: deeppink; font-size: 50px;">Hello</h1>
+	<button id="derp">Next</button>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
+	<script src="main.js"></script>
+</body>
+</html>
