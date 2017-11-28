@@ -15,7 +15,7 @@ namespace Exercise4_1.Controllers
             _dataService = dataService;
         }
 
-
+        // works fine?
         [HttpGet(Name = nameof(GetPosts))]
         public IActionResult GetPosts(int page = 0, int pageSize = 10)
         {
