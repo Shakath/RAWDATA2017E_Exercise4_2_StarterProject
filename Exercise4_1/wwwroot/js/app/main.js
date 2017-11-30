@@ -11,6 +11,32 @@ define(function (require){
         hasPrev = ko.computed(function() {
              return current() > 0;
         }, this);
+    var currentPage = ko.observable({ page: this.current, posts: ko.observableArray()});
+    var currentPost = ko.observable(null);
+    var currentAnswers = ko.observableArray(null);
+
+    function getPost(post) {
+        console.log(post);
+        $.ajax({
+            url: post.link,
+            success: function (result) {
+                console.log(result);
+                currentPost(result);
+                getAnswers(result);
+            }
+        });
+    }
+
+    function getAnswers(post) {
+        console.log(post);
+        $.ajax({
+            url: post.answers,
+            success: function (result) {
+                console.log(result);
+                currentAnswers(result);
+            }
+        });
+    }
 
     var vm = {
         input: ko.observable(""),
@@ -19,6 +45,11 @@ define(function (require){
         totalPages: pages,
         hasNext: hasNext,
         hasPrev: hasPrev,
+        currentPost: currentPost,
+        currentAnswers: currentAnswers,
+        currentTemplate: function() {
+            return currentPost() ? "postSingle": "postList"; // null evaluerer som false, hvilket betyder at når der ikke er en currentPost, så vis listen
+        },
         prevPage: function () {
             console.log("prev");
             if (hasPrev()) {
@@ -37,7 +68,6 @@ define(function (require){
             console.log(this.currentPage());
         },
         getPosts: function () {
-            console.log("http://localhost:64166/api/posts?page=" + vm.currentPage() + "&pageSize=" + pageSize);
             $.ajax({
                 url: "http://localhost:64166/api/posts?page="+vm.currentPage()+"&pageSize="+pageSize,
                 success: function (result) {
@@ -49,7 +79,8 @@ define(function (require){
                 }
             });
 
-        }
+        },
+        getPost: getPost
     };
 
     ko.applyBindings(vm);

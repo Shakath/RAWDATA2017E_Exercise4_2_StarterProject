@@ -60,9 +60,16 @@
     height: 25px;
 }
 
-#postBox {
+.postBox {
     margin: auto;
     width: 80%;
-    max-width: 60em;
+    max-width: 45em;
+    padding: 2em;
+    margin-bottom: 3em;
     background-color: antiquewhite;
+}
+
+.postListItem {
+    border-bottom: 1px beige solid;
+    border-top: 1px palegoldenrod solid;
 }

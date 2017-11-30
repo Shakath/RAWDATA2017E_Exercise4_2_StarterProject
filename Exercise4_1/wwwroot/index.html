@@ -5,22 +5,36 @@
     <meta charset="UTF-8">
 </head>
 <body>
-<div id="postBox">
-    <button data-bind="click: getPosts">Get Posts</button>
-    <div data-bind="foreach: json">
-        <div>
-            <div data-bind="text: $data.title"></div>
-            <a data-bind="attr: {href: $data.link}">link</a>
+
+
+    <div data-bind="template:{name:currentTemplate}"></div>
+
+    <script id="postList" type="text/html">
+        <div class="postBox">
+            <button data-bind="click: getPosts">Get Posts</button>
+            <div data-bind="foreach: json">
+                <div class="postListItem">
+                    <div data-bind="text: $data.title, click:$root.getPost"></div>
+                    <a data-bind="attr: {href: $data.link}">link</a>
+                </div>
+            </div>
+            <div id="pageDiv">
+                <button data-bind="click: prevPage, enable: hasPrev"><< Prev</button>
+                <input data-bind="textInput: currentPage">
+                <button data-bind="click: nextPage, enable: hasNext">Next >></button>
+            </div>
+        </div>
+    </script>
+<script id="postSingle" type="text/html">
+    <div class="postBox" data-bind="with: currentPost">
+        <h2 data-bind="text: title"></h2>
+        <div data-bind="html: body"></div>
+    </div>
+    <div data-bind="foreach: currentAnswers">
+        <div class="postBox"  data-bind="html: $data.body">
         </div>
     </div>
-    <div id="pageDiv">
-        <button data-bind="click: prevPage, enable: hasPrev"><< Prev</button>
-        <input data-bind="textInput: currentPage">
-        <button data-bind="click: nextPage, enable: hasNext">Next >></button>
-    </div>
-</div>
-
-
+</script>
 <script data-main="js/index" src="js/lib/require.js"></script>
 </body>
 </html>
