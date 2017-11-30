@@ -19,6 +19,7 @@ define(function (require){
         totalPages: pages,
         hasNext: hasNext,
         hasPrev: hasPrev,
+
         prevPage: function () {
             console.log("prev");
             if (hasPrev()) {
