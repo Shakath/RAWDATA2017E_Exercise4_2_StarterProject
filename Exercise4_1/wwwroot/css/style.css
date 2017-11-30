@@ -1,0 +1,68 @@
+.gitbox {
+    background-color: rgb(196, 232, 255);
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.titlebox {
+    background-color: rgb(153, 185, 255);
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.namebox {
+    flex-grow: 1;
+    border-width: 0px 0px 1px 1px;
+    border-color: rgb(173, 175, 182);
+    border-style: solid;
+}
+
+.agebox {
+    width: 40px;
+    border-width: 0px 0px 1px 1px;
+    border-color: rgb(173, 175, 182);
+    border-style: solid;
+}
+
+.starbox {
+    float: right;
+    width: 80px;
+    text-align: end;
+    border-width: 0px 1px 1px 1px;
+    border-color: rgb(173, 175, 182);
+    border-style: solid;
+}
+
+.searchbox {
+    display: flex;
+}
+
+#pageDiv {
+    margin: auto;
+    width: 15em;
+    display: flex;
+}
+
+#pageDiv input {
+    width: 30px;
+    height: 25px;
+    text-align: center;
+}
+
+#pageDiv button:first-child {
+    border-radius: 5px 0 0 5px;
+    height: 25px;
+}
+#pageDiv button:last-child {
+    border-radius: 0 5px 5px 0;
+    height: 25px;
+}
+
+#postBox {
+    margin: auto;
+    width: 80%;
+    max-width: 60em;
+    background-color: antiquewhite;
+}
