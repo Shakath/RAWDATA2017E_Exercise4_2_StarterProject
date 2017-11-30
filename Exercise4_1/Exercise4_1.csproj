@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="Testing\index.html" />
     <Content Include="Testing\main.js" />
   </ItemGroup>
 
@@ -14,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
+    <None Include="wwwroot\index.html" />
   </ItemGroup>
 
 </Project>
