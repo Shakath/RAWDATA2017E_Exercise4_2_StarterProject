@@ -24,7 +24,7 @@ function getPage() {
 
 		changeTitle: function () {
 			console.log(this.title);
-            this.title("Martin is a fuckwit");
+            this.title("Alex is a faggot");
 		},
 
 		nextPage: function () {
@@ -61,25 +61,3 @@ function getPage() {
 	};
 	ko.applyBindings(vm);
 })();
-
-nextPage:function () {
-    console.log("next" + hasNext());
-    if (hasNext()) {
-        this.currentPage(this.currentPage() + 1);
-        this.getPosts();
-    }
-    console.log(this.currentPage());
-},
-getPosts: function () {
-    console.log("http://localhost:64166/api/posts?page=" + vm.currentPage() + "&pageSize=" + pageSize);
-    $.ajax({
-        url: "http://localhost:64166/api/posts?page=" + vm.currentPage() + "&pageSize=" + pageSize,
-        success: function (result) {
-            vm.json([]);
-            for (let item of result.items) {
-                vm.json.push(item);
-            }
-            vm.totalPages(result.pages);
-        }
-    });
-}
