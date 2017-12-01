@@ -10,8 +10,6 @@
 
   <ItemGroup>
     <None Include="wwwroot\index.html" />
-    <None Include="wwwroot\Testing\index.html" />
-    <None Include="wwwroot\Testing\main.js" />
   </ItemGroup>
 
 </Project>
