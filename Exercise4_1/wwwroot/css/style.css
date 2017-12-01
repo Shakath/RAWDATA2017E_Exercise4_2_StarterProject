@@ -1,14 +1,21 @@
 .gitbox {
     background-color: rgb(196, 232, 255);
     width: 100%;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
     display: flex;
 }
 
 .pageDiv {
     margin: auto;
+    box-sizing: border-box;
     width: 9em;
+    height: 3em;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(180deg, rgba(60, 55, 65, 0.4) 0, bisque 0.5em);
+    border-radius: 0 0 1em 1em;
 }
 
 .pageDiv button, .pageDiv input {
@@ -20,26 +27,52 @@
 }
 
 .pageDiv button:first-child {
-    -ms-border-radius: 5px 0 0 5px;
     border-radius: 5px 0 0 5px;
 }
 
 .pageDiv button:last-child {
-    -ms-border-radius: 0 5px 5px 0;
     border-radius: 0 5px 5px 0;
 }
 
 
 .postBox {
     margin: auto;
-    width: 80%;
+    width: 50%;
     max-width: 45em;
     padding: 2em;
     margin-bottom: 3em;
     background-color: antiquewhite;
+    border-radius: 5px;
+}
+
+.postListBox {
+    margin: auto;
+    width: 50%;
+    max-width: 45em;
+    padding: 2em;
+    background-color: antiquewhite;
+    border-radius: 5px;
 }
 
 .postListItem {
-    border-bottom: 1px beige solid;
-    border-top: 1px palegoldenrod solid;
+    border-width: 2px;
+    border-style: solid;
+    border-top-color: rgba(255,255,255,0.4);
+    border-left-color: rgba(255,255,255,0.4);
+    border-bottom-color: rgba(0,0,0,0.4);
+    border-right-color: rgba(0,0,0,0.4);
+    background-color: burlywood;
+    padding: 0.5em;
 }
+
+.postListItem:first-child {
+    border-radius: 0.5em 0.5em 0 0;
+}
+
+.postListItem:last-child {
+    border-radius: 0 0 0.5em 0.5em;
+}
+
+.postListItem:hover {
+     background-color: palegoldenrod;
+ }

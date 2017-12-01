@@ -11,18 +11,14 @@
     <div data-bind="template:{name:currentTemplate}"></div>
 
 <script id="postList" type="text/html">
-    <div class="postBox">
-        <div data-bind="foreach: currentPage.posts">
-            <div class="postListItem">
-                <div data-bind="text: $data.title, click:$root.getPost"></div>
-                <a data-bind="attr: {href: $data.link}">link</a>
+    <div class="postListBox" data-bind="foreach: currentPage.posts">
+            <div class="postListItem" data-bind="text: $data.title, click:$root.getPost">
             </div>
-        </div>
-        <div class="pageDiv">
-            <button data-bind="click: prevPage, enable: hasPrev"><<</button>
-            <input data-bind="textInput: currentPage.page">
-            <button data-bind="click: nextPage, enable: hasNext">>></button>
-        </div>
+    </div>
+    <div class="pageDiv">
+        <button data-bind="click: prevPage, enable: hasPrev"><<</button>
+        <input data-bind="textInput: currentPage.page">
+        <button data-bind="click: nextPage, enable: hasNext">>></button>
     </div>
 </script>
 <script id="postSingle" type="text/html">
