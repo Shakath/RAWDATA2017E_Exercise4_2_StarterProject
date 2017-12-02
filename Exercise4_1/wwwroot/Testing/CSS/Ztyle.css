@@ -1,0 +1,17 @@
+﻿body {
+    background-color: aqua;
+}
+
+#data {
+    font-size: larger;
+    background-color: brown;
+}
+
+#title{
+    color: greenyellow;
+    font-size: 50px;
+}
+
+button {
+    background-color: cornflowerblue;
+}
