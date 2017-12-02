@@ -9,23 +9,32 @@
 
 <h1 id="title">Best Design EU</h1>
 
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"
-        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-        crossorigin="anonymous"></script>
 
-<div id="data" data-bind="text: content"></div>
+<!--Laver foreach template of bruger den-->
+<div id = "data" data-bind="template: {name: 'post-template', foreach: jsonArray}"></div>
 
-<div id="itemList">
+<script type="text/html" id="post-template">
+    <a data-bind="attr: {href: link}, text: title"></a>
+    <br />
+</script>
+
+<!--Normal forech løkke-->
+<!--<div id="itemList">
     <div data-bind="foreach: jsonArray">
         <a data-bind="attr: {href: $data.link}, text: $data.title"></a><br />
     </div>
-</div>
+</div>-->
+
+<!--Henter alt data og viser det som string-->
+<!--<div id="data" data-bind="text: content"></div>-->
 
 <button data-bind="click: prevPage" style="font-size: 30px;">Prev</button>
 <button data-bind="click: nextPage" style="font-size: 30px;">Next</button>
 
-
-    
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous">
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
 <script src="main.js"></script>
 </body>
