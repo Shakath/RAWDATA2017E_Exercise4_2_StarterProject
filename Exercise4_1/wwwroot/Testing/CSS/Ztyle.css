@@ -1,23 +1,51 @@
 ﻿body {
-    background-color: black;
+    background-color: wheat;
 }
 
 #data {
-    font-size: larger;
-    background-color: brown;
+    background-color: wheat;
+}
+
+#postTable {
+    border: 1px solid black;
+    width: 50%;
+}
+
+th, td {
+    border: 1px solid black;
+    width: 25%;
+    height: 20%;
+}
+
+#postAnswer {
+    border-style: solid;
+    background-color: aliceblue;
+    border-width: 2px;
+    width: 70%;
+}
+
+#postDiv{
+    width: 80%;
+}
+
+#linkBtn{
+    font-size: 15px;
 }
 
 #title{
-    color: greenyellow;
+    color: black;
     font-size: 50px;
 }
 
-#titleText{
-    color: turquoise;
+#listText{
     font-size: large;
 }
 
-button {
+#postTitle {
+    font-size: 40px;
+}
+
+#navBtn {
     background-color: whitesmoke;
     font-size: 30px;
 }

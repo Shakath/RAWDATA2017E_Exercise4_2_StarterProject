@@ -6,6 +6,7 @@ var prevPage = null;
         content: ko.observable("Content"),
         jsonArray: ko.observableArray([]),
         postArray: ko.observableArray([]),
+        answerArray: ko.observableArray([]),
 
 		nextPage: function () {
             $.ajax({
@@ -64,6 +65,16 @@ var prevPage = null;
                 success: function (data) {
                     console.log(data);
                     vm.postArray(data);
+
+                    $.ajax({
+                        url: data.answers,
+                        method: "GET",
+                        dataType: "json",
+                        success: function (aData) {
+                            console.log(aData);
+                            vm.answerArray(aData);
+                        }
+                    });
                 }
             });
         }

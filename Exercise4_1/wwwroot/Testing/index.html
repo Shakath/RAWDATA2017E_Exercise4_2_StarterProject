@@ -2,51 +2,49 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>KNOCKOUT</title>
+    <title>How u doin</title>
     <link rel="stylesheet" type="text/css" href="CSS/Ztyle.css">
 </head>
 <body>
 
-<h1 id="title">Best Design EU</h1>
+<h1 id="title">Knockout Testing</h1>
 
 
 <!--Laver foreach template og bruger den-->
-<div id = "data" data-bind="template: {name: 'post-template', foreach: jsonArray}"></div>
-
-<script type="text/html" id="post-template">
-    <!--<a data-bind="attr: {href: link}, text: title"></a>-->
-    <!--<button data-bind="click: singlePost">OK</button>-->
-    <!--<button data-bind="click: $parent.singlePost">OK</button>-->
-    <p id = "titleText" data-bind="text: title"></p>
-    <button data-bind="click: function(datalink) {$parent.singlePost(link, datalink)}">GO</button>
-    <br />
-</script>
-
-<table>
-    <thead>
-        <tr><th>Title</th><th>Link</th></tr>
-    </thead>
-    <tbody data-bind="foreach: jsonArray">
-        <tr>
-            <td data-bind="text: title"></td>
-            <td data-bind="text: link"></td>
-        </tr>
-    </tbody>
-</table>
-
-<!--Normal foreach løkke-->
-<!--<div id="itemList">
-    <div data-bind="foreach: jsonArray">
-        <a data-bind="attr: {href: $data.link}, text: $data.title"></a><br />
-    </div>
-</div>-->
-
-<!--Henter alt data og viser det som string-->
-<!--<div id="data" data-bind="text: content"></div>-->
 
 <button data-bind="click: prevPage">Prev</button>
 <button data-bind="click: nextPage">Next</button>
-<button data-bind="click: singlePost">OK</button>
+<table id= "postTable" data-bind="template: {name: 'post-template', foreach: jsonArray}"></table>
+<div id = "postDiv" data-bind="template: {name: 'sPost-template', foreach: postArray}"></div>
+
+<script type="text/html" id="post-template">
+        <tbody>
+            <tr>
+                <td data-bind="text: title"></td>
+                <td><button id="linkBtn" data-bind="click: function(datalink) {$parent.singlePost(link, datalink)}">GO</button></td>
+            </tr>
+        </tbody>
+    <br />
+</script>
+
+<script type="text/html" id="sPost-template">
+    <span id="postTitle" data-bind="text: title"></span>
+    <br /> <br />
+    <span id="postBody" data-bind="text:body"></span>
+    <br />
+    <br />
+    <div id="data" data-bind="template: {name: 'answer-template', foreach: $parent.answerArray}"></div>
+</script>
+
+<script type="text/html" id="answer-template">
+    <div id="postAnswer">
+        <span id="postBody" data-bind="text:body"></span>
+        <br />
+        <u data-bind="text: link"></u>
+        <br />
+    </div>
+    <br />
+</script>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
