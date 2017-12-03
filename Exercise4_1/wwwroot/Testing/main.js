@@ -64,11 +64,6 @@ var prevPage = null;
                 success: function (data) {
                     console.log(data);
                     vm.postArray(data);
-
-                    vm.jsonArray.length = 0;
-
-                    //nextPage = data.next;
-                    //prevPage = data.prev;
                 }
             });
         }
