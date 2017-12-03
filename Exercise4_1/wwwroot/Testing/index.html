@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Ajax</title>
+    <title>KNOCKOUT</title>
     <link rel="stylesheet" type="text/css" href="CSS/Ztyle.css">
 </head>
 <body>
@@ -10,15 +10,19 @@
 <h1 id="title">Best Design EU</h1>
 
 
-<!--Laver foreach template of bruger den-->
+<!--Laver foreach template og bruger den-->
 <div id = "data" data-bind="template: {name: 'post-template', foreach: jsonArray}"></div>
 
 <script type="text/html" id="post-template">
-    <a data-bind="attr: {href: link}, text: title"></a>
+    <!--<a data-bind="attr: {href: link}, text: title"></a>-->
+    <!--<button data-bind="click: singlePost">OK</button>-->
+    <!--<button data-bind="click: $parent.singlePost">OK</button>-->
+    <p id = "titleText" data-bind="text: title"></p>
+    <button data-bind="click: function(datalink) {$parent.singlePost(link, datalink)}">GO</button>
     <br />
 </script>
 
-<!--Normal forech løkke-->
+<!--Normal foreach løkke-->
 <!--<div id="itemList">
     <div data-bind="foreach: jsonArray">
         <a data-bind="attr: {href: $data.link}, text: $data.title"></a><br />
@@ -28,8 +32,9 @@
 <!--Henter alt data og viser det som string-->
 <!--<div id="data" data-bind="text: content"></div>-->
 
-<button data-bind="click: prevPage" style="font-size: 30px;">Prev</button>
-<button data-bind="click: nextPage" style="font-size: 30px;">Next</button>
+<button data-bind="click: prevPage">Prev</button>
+<button data-bind="click: nextPage">Next</button>
+<button data-bind="click: singlePost">OK</button>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="

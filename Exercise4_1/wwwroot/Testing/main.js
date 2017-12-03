@@ -5,6 +5,7 @@ var prevPage = null;
     var vm = {
         content: ko.observable("Content"),
         jsonArray: ko.observableArray([]),
+        postArray: ko.observableArray([]),
 
 		nextPage: function () {
             $.ajax({
@@ -50,6 +51,24 @@ var prevPage = null;
                     console.log(data.next);
                     nextPage = data.next;
                     prevPage = data.prev;
+                }
+            });
+        },
+
+        singlePost: function (datalink) {
+            console.log("ko: " + datalink);
+            $.ajax({
+                url: datalink,
+                method: "GET",
+                dataType: "json",
+                success: function (data) {
+                    console.log(data);
+                    vm.postArray(data);
+
+                    vm.jsonArray.length = 0;
+
+                    //nextPage = data.next;
+                    //prevPage = data.prev;
                 }
             });
         }

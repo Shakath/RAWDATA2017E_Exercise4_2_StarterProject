@@ -1,5 +1,5 @@
 ﻿body {
-    background-color: aqua;
+    background-color: black;
 }
 
 #data {
@@ -12,6 +12,12 @@
     font-size: 50px;
 }
 
+#titleText{
+    color: turquoise;
+    font-size: large;
+}
+
 button {
-    background-color: cornflowerblue;
+    background-color: whitesmoke;
+    font-size: 30px;
 }
