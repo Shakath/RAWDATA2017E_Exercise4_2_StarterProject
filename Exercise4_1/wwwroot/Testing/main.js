@@ -7,6 +7,10 @@ var prevPage = null;
         jsonArray: ko.observableArray([]),
         postArray: ko.observableArray([]),
         answerArray: ko.observableArray([]),
+        answerSize: ko.computed(function () {
+            console.log('test');
+            return "amount of answers" + vm.answerArray.length;
+        }),
 
 		nextPage: function () {
             $.ajax({
@@ -14,14 +18,10 @@ var prevPage = null;
                 method: "GET",
                 dataType: "json",
                 success: function (data) {
-                    console.log(data);
                     vm.content(JSON.stringify(data.items));
-                    console.log(data.next);
                     vm.jsonArray(data.items);
                     nextPage = data.next;
                     prevPage = data.prev;
-                    console.log("Next: " + nextPage);
-                    console.log("Prev: " + prevPage);
                 }
             });
         },
@@ -33,7 +33,6 @@ var prevPage = null;
                 dataType: "json",
                 success: function (data) {
                     nextPage = data.next;
-                    console.log("Next: " + nextPage);
                     vm.content(JSON.stringify(data.items));
                     vm.jsonArray(data.items);
                 }
@@ -46,10 +45,8 @@ var prevPage = null;
                 method: "GET",
                 dataType: "json",
                 success: function (data) {
-                    console.log(data);
                     vm.content(JSON.stringify(data.items));
                     vm.jsonArray(data.items);
-                    console.log(data.next);
                     nextPage = data.next;
                     prevPage = data.prev;
                 }
@@ -57,7 +54,6 @@ var prevPage = null;
         },
 
         singlePost: function (datalink) {
-            console.log("ko: " + datalink);
             $.ajax({
                 url: datalink,
                 method: "GET",
