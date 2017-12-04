@@ -3,14 +3,11 @@
 <head>
     <meta charset="utf-8" />
     <title>How u doin</title>
-    <link rel="stylesheet" type="text/css" href="CSS/Ztyle.css">
+    <link rel="stylesheet" type="text/css" href="CSS/style.css">
 </head>
 <body>
 
 <h1 id="title">Knockout Testing</h1>
-
-
-<!--Laver foreach template og bruger den-->
 
 <button data-bind="click: prevPage">Prev</button>
 <button data-bind="click: nextPage">Next</button>
@@ -28,16 +25,19 @@
 </script>
 
 <script type="text/html" id="sPost-template">
-    <span id="postTitle" data-bind="text: title"></span>
-    <br /> <br />
-    <span id="postBody" data-bind="text:body"></span>
-    <br />
-    <br />
-    <div id="data" data-bind="template: {name: 'answer-template', foreach: $parent.answerArray}"></div>
+    <div id="postDiv">
+        <span id="postTitle" data-bind="text: title"></span>
+        <br /> <br />
+        <span id="postBody" data-bind="text:body"></span>
+        <br />
+        <br />
+    </div>
+    <div data-bind="template: {name: 'answer-template', foreach: $parent.answerArray}"></div>
+    
 </script>
 
 <script type="text/html" id="answer-template">
-    <div id="postAnswer">
+    <div id="postDiv">
         <span id="postBody" data-bind="text:body"></span>
         <br />
         <u data-bind="text: link"></u>

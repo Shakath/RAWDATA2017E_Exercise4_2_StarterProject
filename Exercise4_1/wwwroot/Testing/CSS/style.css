@@ -1,5 +1,5 @@
 ﻿body {
-    background-color: wheat;
+    background-color: white;
 }
 
 #data {
@@ -17,14 +17,10 @@ th, td {
     height: 20%;
 }
 
-#postAnswer {
+#postDiv {
     border-style: solid;
     background-color: aliceblue;
     border-width: 2px;
-    width: 70%;
-}
-
-#postDiv{
     width: 80%;
 }
 
@@ -33,7 +29,6 @@ th, td {
 }
 
 #title{
-    color: black;
     font-size: 50px;
 }
 

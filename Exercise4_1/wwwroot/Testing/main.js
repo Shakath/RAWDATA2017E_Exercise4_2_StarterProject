@@ -9,7 +9,7 @@ var prevPage = null;
         answerArray: ko.observableArray([]),
         answerSize: ko.computed(function () {
             console.log('test');
-            return "amount of answers" + vm.answerArray.length;
+            //return "amount of answers" + vm.answerArray.length;
         }),
 
 		nextPage: function () {
